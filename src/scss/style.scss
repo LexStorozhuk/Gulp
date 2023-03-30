@@ -1,0 +1,114 @@
+@import "_mixins.scss";
+@import "_null.scss";
+@import "_footer";
+@import "_header";
+@import"_fonts";
+@import"_main";
+@import"_reviews";
+@import"_contact";
+@import"_slider";
+@import"_icons";
+
+$fontFamily: roboto;
+$mainColor: black;
+*a {
+    color: $mainColor;
+}
+
+//<Перемінні>============================================
+$minWidth: 320px;
+$maxWidth: 1920px;
+$maxWidthContainer: 1270;
+$md1: $maxWidthContainer + 12px;
+$md2: 991.98px;
+$md3: 769.98px;
+$md4: 479.98px;
+
+//</Перемінні>============================================
+
+
+//<Основна сітка>=========================================
+._container {
+    position: relative;
+    max-width: $maxWidthContainer + px;
+    margin: 0 auto;
+    @media (max-width: $md1) {
+        // max-width: 970px;
+    }
+    @media (max-width: $md2) {
+        // max-width: 750px;
+    }
+    @media (max-width: $md3) {
+        // max-width: 500px;
+        padding: 0 10px;
+    }
+    @media (max-width:$md4) {
+        // max-width: 500px;
+        padding: 0 10px;
+    }
+}
+//<Основна сітка>=========================================
+
+
+//<Онулення>============================================
+body {
+    color:$mainColor;
+    font-size: 14px;
+    background-color: wheat;
+    &._lock {
+        overflow: hidden;
+    }
+}
+//</Онулення>============================================
+
+//<Обгортка>=============================================
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    &._loaded {
+    }
+}
+
+//</Обгортка>=============================================
+
+//<Основна сітка>=============================================
+// ._container {
+//     max-width: $maxWidthContainer + px;
+//     margin: 0 auto;
+//     @media (max-width: $md1) {
+//         max-width: 970px;
+//     }
+//     @media (max-width: $md2) {
+//         max-width: 750px;
+//     }
+//     @media (max-width: $md3) {
+//         max-width: none;
+//         padding: 0 10px;
+//     }
+// }
+.visibility {
+    visibility: visible;
+}
+
+// ::-webkit-input-placeholder { color: #ffffff; }
+// ::-moz-placeholder          { color: #ffffff; } /*Firefox 19+*/
+// :-moz-placeholder           { color: #ffffff; } /*Firefox 18-*/
+// :-ms-input-placeholder      { color: #ffffff; }
+
+input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;} /*smooth opacity input*/
+input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
+// &ensp; - пробел длины буквы N;
+// &ensp; - пробел длины буквы M;
+// &zwnj; - несоединяющий символ нулевой длины;
+// &zwj; - соединяющий символ нулевой длины.

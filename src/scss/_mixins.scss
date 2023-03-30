@@ -1,0 +1,87 @@
+
+//</Перемінні>============================================
+$minWidth: 320px;
+$maxWidth: 1920px;
+$maxWidthContainer: 1270;
+$md1: $maxWidthContainer + 12px;
+$md2: 991.98px;
+$md3: 768.98px;
+$md4: 479.98px;
+//<Онулення>============================================
+body {
+    width: 100%;
+    font-size: 14px;
+    &._lock {
+        overflow: hidden;
+        // @media (max-width: 1440px) {
+        //  overflow-x: hidden;   
+        // }
+    }
+}
+//</Онулення>============================================
+
+//<Обгортка>=============================================
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    &._loaded {
+    }
+}
+
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+        font-family:$font_name ;
+        font-display:swap; 
+        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+        font-weight:#{$weight};
+        font-style: #{$style};
+    }
+}
+/// Адаптивний шрифт
+@mixin adaptive-font($pcSize, $mobileSize, $maxSize) {
+    $addSize: $pcSize - $mobileSize;
+    @if $maxSize==1 {
+        // Тільки якщо менше контейнера 
+        font-size: $pcSize + px;
+        @media (max-width: #{$maxWidthContainer + px}) {
+            font-size: calc(#{$mobileSize + px} + (#{$addSize} + #{$addSize} * 0.7) * ((100vw - 320px) / #{$maxSize}));
+    }
+} @else if $maxSize==2 {
+    //Тільки якщо більше контейнера
+    font-size: $pcSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+        font-size: calc(#{$mobileSize + px} + (#{$addSize} + #{$addSize} * 0.7) * ((100vw - 320px) / #{$maxSize}));
+    }
+} @else {
+    //Завжди 
+    font-size: calc(#{$mobileSize + px} + (#{$addSize} + #{$addSize} * 0.7) * ((100vw - 320px) / #{$maxSize}));
+
+}
+}
+//Адаптивна властивість
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+    $addSIze: $startSize - $minSize;
+    @if $type==1 {
+        // Тільки якщо менше контейнера 
+        #{$property}: $startSize + px;
+            @media (max-width: #{$maxWidthContainer + px}) {
+                #{$property}: calc(#{$minSize + px} + #{$addSIze} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+            }
+    }
+    @else if $type==2 {
+        //Тільки якщо більше контейнера 
+        #{$property}: $startSize + px;
+            @media (max-width: #{$maxWidthContainer + px}) {
+                #{$property}: calc(#{$minSize + px} + #{$addSIze} * ((100vw - 320px) / #{$maxWidthContaine- 320}));
+            }
+    }
+    @else {
+        //Завжди
+        #{$property}: $startSize + px;
+            #{$property}: calc(#{$minSize + px} + #{$addSIze} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+        }
+    }
+   
