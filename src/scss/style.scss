@@ -1,3 +1,5 @@
+$mainColor: black;
+$fontFamily: roboto;
 @import "_mixins.scss";
 @import "_null.scss";
 @import "_footer";
@@ -8,12 +10,12 @@
 @import"_contact";
 @import"_slider";
 @import"_icons";
+@import"_ui";
+@import"../scss/base/forms/select.scss";
+@import"../scss/base/forms/range.scss";
 
-$fontFamily: roboto;
-$mainColor: black;
-*a {
-    color: $mainColor;
-}
+
+
 
 //<Перемінні>============================================
 $minWidth: 320px;
@@ -26,6 +28,9 @@ $md4: 479.98px;
 
 //</Перемінні>============================================
 
+*a {
+    color: $mainColor;
+}
 
 //<Основна сітка>=========================================
 ._container {

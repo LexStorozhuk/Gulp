@@ -1,7 +1,26 @@
+.header {
 
-.burger_menu {
-    width: 150px;
-    height: 255px;
+  &__burger {
+  }
+
+  &__menu {
+  }
+
+  &__list {
+    margin: 0px auto 0 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+  }
+  &__link {
+    color:black;
+  }
+}
+
+.burger-menu {
+width: 50px;
+height: 50px;
     background-image: url(/font-grid.png);
     position: absolute;
     left: none;
@@ -14,70 +33,45 @@
     opacity: 0.9;
     border: 5px dotted;
   }
-  .active_burger {
+  .burger-menu.active {
     top: 5px;
-  }
-  .burger_list {
-    margin: 0px auto 0 auto;
-    flex-direction: column;
-    justify-content: flex-start;
-    display: flex;
-    align-items: center;
-  }
-  .burger_menu.text_burger_menu {
-    font-size: calc(20px + (10 + 10 * 0.7) * ((100vw - 320px) / 1280));
   }
 
-  .burger {
-    width: 30px;
-    height: 30px;
-    background-color: rgba(245, 222, 179, 0.452);
-    background-color: rgba(108, 0, 0, 0.136);
-    position: absolute;
-    z-index: 60;
-    right: 5px;
-    top: 5px;
-  }
-  .burger::after,
-  .burger:before {
+  .burger-menu::after,
+  .burger-menu:before {
     content: "";
     width: 100%;
     height: 2px;
-    background-color: rgba(108, 0, 0, 0.83);
+    background-color: black;
     position: absolute;
     left: 0;
     transition: 0.3s;
+    ._active::after {
+      transform: rotateZ(-40deg);
+      top: 12px;
+      transition: 0.3s;
+    }
+    ._active::before {
+      transform: rotateZ(40deg);
+      top: 12px;
+      transition: 0.3s;
+    }
+    ._active span {
+      transform: scale(0);
+      transition: 0.1s;
+    }
   }
-  .burger:before {
+  .burger-menu:before {
     top: 0;
   }
-  .burger::after {
+  .burger-menu::after{
     bottom: 0;
   }
-  .burger span {
+  .burger-menu span {
     width: 100%;
     height: 3px;
-    background-color: rgba(108, 0, 0, 0.83);
+    background-color: black;
     position: absolute;
     top: 13px;
     transition: 0.3s;
   }
-  .active::after {
-    transform: rotateZ(-40deg);
-    top: 12px;
-    transition: 0.3s;
-  }
-  .active::before {
-    transform: rotateZ(40deg);
-    top: 12px;
-    transition: 0.3s;
-  }
-  .active span {
-    transform: scale(0);
-    transition: 0.1s;
-  }
-  .burger.active {
-    border: 3px solid rgba(108, 0, 0, 0.83);
-    border-radius: 50%;
-  }
-}

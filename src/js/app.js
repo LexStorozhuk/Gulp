@@ -2,14 +2,21 @@ import { spoller } from "./modules/jqFunctions.js";
 import { removeClasses } from "./modules/isMobile.js";
 import { isMobile } from "./modules/isMobile.js";
 import { spollers } from "./modules/spollers.js";
+import { select } from "./modules/select.js";
+import { rangeInit } from "./modules/range.js";
+import { shareInit } from "./modules/share.js";
+import { validation } from "./modules/validation.js";
+import { slider } from "./modules/slider.js";
 import * as flsFunctions from "./modules/webp.js";
-import * as slick from "./modules/slider.js";
 flsFunctions.isWebp();
-slick.slider();
+slider();
 spollers();
-
+select();
+rangeInit();
+shareInit();
 // if( isMobile.any() ) {} alert('Mobile');
 
+document.addEventListener("DOMContentLoaded", validation()); 
 window.onload = function () {
   document.addEventListener("click", documentActions);
 };
@@ -36,3 +43,4 @@ function documentActions(e) {
     document.querySelector(".search-form").classList.remove("_active");
   }
 }
+

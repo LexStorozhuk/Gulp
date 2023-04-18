@@ -1,0 +1,55 @@
+<div class="wrapper">
+    <div class="form">
+     <form  action="#" id="form" class="form__body">
+        <h1 class="form__title">Sending dates to email</h1>
+        <div class="form__item">
+            <label for="formName" class="form__lable">name*:</label>
+            <input id="formName" type="text" name="name" class="form__input _req">
+        </div>
+        <div class="form__item">
+            <label for="formEmail" class="form__lable ">E-mail*:</label>
+            <input id="formEmail" type="text" name="email" class="form__input _req _email">
+        </div>
+        <div class="form__item">
+            <div class="form__label">Left or right?</div>
+            <div class="options">
+                <div class="options__item">
+                    <input id="formRightHanded" checked type = "radio" value="right" name="hand" class="options__input">
+                    <label for="formRightHanded" class="options__lable"> Right</label>
+                </div>
+                <div class="options__item">
+                    <input id="formLeftHanded" type = "radio" value="left" name="hand" class="options__input">
+                    <label for="formLeftHanded" class="options__lable"> Left</label>
+                </div>
+             </div>
+        </div>
+            <div class="form__item">
+                <lable for="FormMessage" class="form__lable">Message</lable>
+                <textarea name="Message" id="FormMessage" class="form__input"></textarea>
+            </div>
+            <div class="form__item">
+                <div name="age" class="form__lable">Age:</div>
+                <select name="age"class="form__select">
+                    <option value="from 18 to 25">young</option>
+                    <option value="from 25 to 45">old</option>
+                    <option value="from 45">supper old</option>
+                </select>
+            </div>
+                <div class="form__item">
+                    <div class="form__label">Add Photo</div>
+                    <div class="file">
+                        <div class="file__item">
+                            <input id="formImage" accept=".jpj, .png, .gif" type="file" class="file__input"></input>
+                            <div class="file__button">Select</div>
+                        </div>
+                        <div id="formPreview" class="file__preview"></div>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input _req">
+                    <label for="formAgreement" class="checkbox__lable"><span>I give my information for bla bla bla <a href="">properties</a></span> </label>
+                </div>
+                <button id="submitButton"  type="submit" class="form__button"> Submit</button>
+        </form>
+    </div>
+</div>

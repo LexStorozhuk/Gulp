@@ -1,0 +1,261 @@
+.wrapper {
+}
+.form {
+	max-width: 550px;
+	margin: 0 auto;
+	color: white;
+	padding: 30px 0;
+
+	&__body {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background:  url(../img/main/icons8-loading-48.png) center / 50px no-repeat;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.5s ease 0s;
+		}
+	}
+	&__body._sending::after {
+		opacity: 1;
+		visibility: visible;
+		animation: background 3s infinite;
+	}
+	&__title {
+		font-size: 40px;
+		font-weight: 700;
+		margin: 0 0 30px 0;
+	}
+
+	&__item {
+		margin: 0 0 20px 0;
+	}
+
+	&__lable {
+		font-size: 18px;
+		display: block;
+		margin: 0 0 10px 0;
+	}
+
+	&__input._error {
+		box-shadow: inset rgb(128, 53, 0) 0px 0px 15px;
+	}
+	&__input {
+		height: 50px;
+		padding: 0 20px;
+		border-radius: 5px;
+		width: 100%;
+		font-size: 18px;
+
+		transition: 0.3s ease;
+		&:focus {
+			box-shadow: inset green 0px 0px 15px;
+		}
+	}
+
+	&__label {
+	}
+
+	&__button {
+		position: relative;
+		background-color: green;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		min-height: 60px;
+		color: $mainColor;
+		font-style: 16px;
+		text-transform: uppercase;
+
+		letter-spacing: 2px;
+		font-weight: 400;
+		cursor: pointer;
+		border-radius: 20px;
+		box-shadow: 0 5px 0px black;
+		position: relative;
+		top: 0;
+		transition: all 0.3s ease-out;
+		&:active {
+			top: 5px;
+			box-shadow: none;
+		}
+		&:hover {
+			background-color: rgb(3, 82, 3);
+		}
+	}
+}
+
+.options {
+	&__item {
+	}
+
+	&__input:checked + &__lable::after {
+		transform: scale(1);
+	}
+
+	&__input {
+		display: none;
+	}
+
+	&__lable {
+		display: inline-flex;
+		position: relative;
+		align-items: center;
+		line-height: 140%;
+		&:before {
+			content: "";
+			align-self: flex-start;
+			height: 14px;
+			width: 14px;
+			background-color: rgb(255, 2, 2);
+			border-radius: 50%;
+			margin: 0px 10px 0px 0px;
+		}
+		&:after {
+			content: "";
+			width: 7px;
+			height: 7px;
+			background-color: black;
+			position: absolute;
+			top: 3.5px;
+			left: 3.5px;
+			border-radius: 50%;
+			transform: scale(0);
+		}
+	}
+}
+.file {
+	&__item {
+	}
+
+	&__input {
+		position: absolute;
+		min-height: 40px;
+		width: 100px;
+		opacity: 0;
+		font-size: 0;
+		background-color: black;
+		cursor: pointer;
+	}
+	&__button {
+		display: inline-flex;
+		min-height: 40px;
+		width: 100px;
+		border: black solid 2px;
+		background-color: rgba(156, 4, 156, 0.777);
+		justify-content: center;
+		align-items: center;
+		border-radius: 20px;
+		padding: 0 20px;
+		color: $mainColor;
+	}
+	&__preview {
+		display: inline-block;
+		min-width: 100px;
+		padding-top: 10px;
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
+.checkbox._error .checkbox__lable::before {
+	box-shadow: inset rgb(133, 2, 2) 0 0 15px;
+}
+.checkbox {
+	&__input:checked + &__lable::after {
+		transform: scale(1);
+	}
+	&__input {
+		display: none;
+	}
+
+	&__lable {
+		position: relative;
+		font-size: 16px;
+		line-height: 140%;
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+	}
+	&__lable:after {
+		content: "";
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		background-color: grey;
+		border-radius: 4%;
+		transform: scale(0);
+	}
+	&__lable::before {
+		content: "";
+		align-self: flex-start;
+		flex: 0 0 24px;
+		height: 24px;
+		background-color: #fff;
+		border-radius: 4%;
+		margin: 0px 10px 0px 0px;
+	}
+}
+textarea.form__input {
+	min-height: 120px;
+}
+
+.share button {
+	background-color: transparent;
+}
+.share {
+	@media (any-hover: hover) {
+		&:hover &__ul {
+			transform: translateY(0px);
+		}
+		&:hover &__text {
+			transform: translateY(0px);
+		}
+	}
+	width: 100px;
+	border: black solid 2px;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: rgba(156, 4, 156, 0.777);
+	overflow: hidden;
+	&__ul {
+		display: flex;
+		justify-content: space-evenly;
+		transform: translateY(18px);
+		transition: all ease 0.5s;
+		color: orange;
+		@media (max-width: $md3) {
+			transform: translateY(0px);
+		}
+	}
+
+	&__text {
+		transform: translateY(8px);
+		align-self: center;
+		transition: all ease 0.5s;
+	}
+}
+.color {
+	color: orange;
+}
+@keyframes background {
+	0% {
+	   transform: rotate(0deg);
+
+	}
+	100% {
+	   transform: rotate(360deg);
+	}
+   
+}

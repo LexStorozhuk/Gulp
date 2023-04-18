@@ -1,0 +1,126 @@
+.footer {
+    &__container {
+    }
+
+    &__body {
+        border-top: 1px solid red;
+        display: grid;
+        grid-template-columns: 250px 1fr 290px;
+        @include adaptive-value(padding-top, 80, 30, 1);
+        @include adaptive-value(padding-bottom, 60, 30, 1);
+        @include adaptive-value(column-gap, 80, 0, 1);
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__text {
+        color: grey;
+        line-height: 150%;
+        &:not(:last-child) {
+            margin: 0 0 1em 0px;
+        }
+    }
+
+    &__contacts {
+    }
+
+    &__menu {
+    }
+
+    &__subscribe {
+    }
+
+    &__logo {
+        margin: 0px 0px 16px/26px * 1em 0px;
+    }
+}
+.contacts-footer {
+    @media (min-width: $md3) {
+        display: flex; 
+    }
+    flex-direction: column;
+    align-items: flex-start;
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        color: grey;
+        transition: color 0.3s ease 0s;
+        &:not(:last-child) {
+            @include adaptive-value(margin-bottom, 16, 10, 1);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: orange;
+            }
+        }
+    }
+}
+.menu-footer {
+    display: flex;
+    &__column {
+        @media (min-width: $md3) {
+            flex: 0 1 33.333%;
+        }
+    }
+
+    &__title {
+        cursor: default;
+        margin: 0px 0px 16px/24px * 1em 0px;
+    }
+
+    &__list {
+        &:not(:last-child) {
+            margin: 0px 0px 15px 0px;
+        }
+    }
+
+    &__link {
+        color: grey;
+        transition: color 0.3 ease;
+        line-height: 120%;
+        font-weight: 500;
+    @media (any-hover: hover) {
+        &:hover {
+        color:  orange;
+        }
+        }
+    }
+}
+.subscribe {
+    &__title {
+        margin:0px 0px 16px/24px * 1em 0px;
+        display: block;
+        cursor: pointer;
+    }
+
+    &__form {
+        display: flex;
+        position: relative;
+
+    }
+
+    &__input {
+        width: 100%;
+    }
+
+    &__button {
+        flex:  0 0 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        background-color: orange;
+        color: white;
+        padding: 0 12px;
+        @media (any-hover: hover) {
+            &:hover {
+            background-color: rgb(162, 106, 0);
+            }
+            }
+    }
+}

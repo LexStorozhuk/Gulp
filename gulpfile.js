@@ -15,6 +15,7 @@ global.app = {
 }
 
 //Іморт задачі
+import { components } from "./gulp/tasks/components.js";
 import { copy } from "./gulp/tasks/copy.js";
 import { reset } from "./gulp/tasks/reset.js";
 import { html } from "./gulp/tasks/html.js";
@@ -29,6 +30,7 @@ import { ftp } from "./gulp/tasks/ftp.js";
 
 //Спостерігач за змінами в файлах
 function watcher() {
+    gulp.watch(path.watch.components, components);
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
     gulp.watch(path.watch.scss, scss);
@@ -39,7 +41,7 @@ function watcher() {
 //Поступова обробка шрифтів
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 ///Основна задача
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images, svgSprive));
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, components, html, scss, js, images, svgSprive));
 
 ///Побудова сценарію виконання задач
 const dev = gulp.series(reset,mainTasks, gulp.parallel(watcher,server));
